@@ -1,2 +1,2 @@
 # capfireapp
-Proyecto modular, aplicación que localiza el fuego en imagen de cámara.
+Proyecto modular, aplicación que localiza el fuego en una imagen desde una cámara de celular.
