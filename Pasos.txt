@@ -63,3 +63,4 @@ bash Miniconda3-latest-Linux-x86.sh
 
 conda install numpy
 
+pip install opencv-python
