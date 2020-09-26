@@ -1,0 +1,99 @@
+
+apt-get install -y sudo
+
+sudo apt install net-tools
+
+sudo apt install openssh-server
+
+sudo apt install vim
+
+vim /etc/ssh/sshd_config
+	#modificar parametro por si
+	PermitRootLogin yes
+
+service ssh restart
+
+vim /etc/network/interfaces
+
+# The primary network interface
+allow-hotplug enp0s4
+#iface enp0s4 inet dhcp
+iface enp0s4 inet static
+        address 192.168.1.99
+        netmask 255.255.255.0
+        network 192.168.1.254
+        broadcast 192.168.1.255
+        gateway 192.168.1.254
+
+#Reiniciar
+	reboot
+
+#Instalacion de NO-IP
+
+cd /usr/local/src
+
+wget http://www.noip.com/client/linux/noip-duc-linux.tar.gz
+
+tar xf noip-duc-linux.tar.gz
+
+cd noip-2.1.9-1/
+
+sudo apt install build-essential
+
+make install
+
+/usr/local/bin/noip2 -C
+
+#Se agregar correo y constrasenia
+
+nano /etc/init.d/noip2
+
+#Se agrega
+
+DAEMON=/usr/local/bin/noip2
+NAME=noip2
+
+test -x $DAEMON || exit 0
+
+case "$1" in
+    start)
+    echo -n "Starting dynamic address update: "
+    start-stop-daemon --start --exec $DAEMON
+    echo "noip2."
+    ;;
+    stop)
+    echo -n "Shutting down dynamic address update:"
+    start-stop-daemon --stop --oknodo --retry 30 --exec $DAEMON
+    echo "noip2."
+    ;;
+
+    restart)
+    echo -n "Restarting dynamic address update: "
+    start-stop-daemon --stop --oknodo --retry 30 --exec $DAEMON
+    start-stop-daemon --start --exec $DAEMON
+    echo "noip2."
+    ;;
+
+    *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+esac
+exit 0
+
+#
+chmod +x /etc/init.d/noip2
+
+update-rc.d noip2 defaults
+
+
+#Instalar apache
+
+apt-get install -y apache2
+
+#datos 
+apt-get install mariadb-server
+
+
+ mysql_secure_installation
+
+
