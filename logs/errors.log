@@ -1,0 +1,6 @@
+[Wed Sep 30 09:38:54.807255 2020] [wsgi:error] [pid 1722:tid 3013581632] [client 129.41.86.1:45545] mod_wsgi (pid=1722): Failed to exec Python script file '/var/www/capfireapp/python-app/controller.py'.
+[Wed Sep 30 09:38:54.807342 2020] [wsgi:error] [pid 1722:tid 3013581632] [client 129.41.86.1:45545] mod_wsgi (pid=1722): Exception occurred processing WSGI script '/var/www/capfireapp/python-app/controller.py'.
+[Wed Sep 30 09:38:54.807385 2020] [wsgi:error] [pid 1722:tid 3013581632] [client 129.41.86.1:45545] Traceback (most recent call last):
+[Wed Sep 30 09:38:54.807426 2020] [wsgi:error] [pid 1722:tid 3013581632] [client 129.41.86.1:45545]   File "/var/www/capfireapp/python-app/controller.py", line 1, in <module>
+[Wed Sep 30 09:38:54.807520 2020] [wsgi:error] [pid 1722:tid 3013581632] [client 129.41.86.1:45545]     import cv2
+[Wed Sep 30 09:38:54.807555 2020] [wsgi:error] [pid 1722:tid 3013581632] [client 129.41.86.1:45545] ImportError: No module named cv2
