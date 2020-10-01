@@ -64,3 +64,27 @@ bash Miniconda3-latest-Linux-x86.sh
 conda install numpy
 
 pip install opencv-python
+
+#apachectl configtest 
+
+# https://ferranvillalba.wordpress.com/2016/12/02/desinstalar-apache2-en-debian-o-ubuntu/
+
+#Instalacion del repo 
+
+sudo apt-get install git
+
+#clone repo 
+
+cd /var/www/
+
+git clone https://github.com/cesar954202/capfireapp.git
+
+#copiar archivo de configuracion para arrancar python
+
+cd /etc/apache2/sites-available/
+
+mv 000-default.conf 000-default.confOLD
+
+cp /var/www/capfireapp/000-default.conf 000-default.conf
+
+service apache2 reload
